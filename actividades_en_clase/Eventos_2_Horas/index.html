@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CDN CSS de Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--Link CSS Perosnalizado-->
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Formulario de Inscripción</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <h1>Formulario de Inscripción</h1>
+        </header>
+        <section>
+            <div class="container">
+                <form id="formulario" class="row g-3 needs-validation" >
+                    <div class="col-md-6">
+                        <label for="nombre" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="nombre" minlength="3" pattern="[A-Za-záéúíóñÑÁÉÚÍÓ\s]+" title="Por favor ingresar solo letras" required>
+                        <div class="invalid-feedback">
+                            Nombre Invalido (por favor ingresar solo letras y minimo 3 caracteres).
+                        </div>
+                        <div class="valid-feedback">
+                            Nombre Validado Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="apellido" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="apellido" minlength="3" pattern="[A-Za-záéúíóñÑÁÉÚÍÓ\s]+" title="Por favor ingresar solo letras" required>
+                        <div class="invalid-feedback">
+                            Apellido Invalido (por favor ingresar solo letras y minimo 3 caracteres).
+                        </div>
+                        <div class="valid-feedback">
+                            Apellido Validado Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="tipo_documento" class="form-label">Tipo de Documento</label>
+                        <select id="tipo_documento" class="form-select" required>
+                            <option value="" selected disabled>Seleccionar</option>
+                            <option id="TI" value="1">(TI) Tarteja de Identidad</option>
+                            <option value="2">(CC) Cedula de Ciudadania</option>
+                            <option value="3">(CE) Cedula de Extranjeria</option>
+                            <option value="4">(DNI) Documento Nacional de Identidad</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Tipo de Documento Invalido (No puedes seleccionar tarjeta de identidad).
+                        </div>
+                        <div class="valid-feedback">
+                            Tipo de Documento Validado Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="apellido" class="form-label">Descripcion</label>
+                        <input type="text" class="form-control" id="descripcion" minlength="3" pattern="[A-Za-záéúíóñÑÁÉÚÍÓ\s]+" title="Por favor ingresar solo letras" required>
+                        <div class="invalid-feedback">
+                            Apellido Invalido (por favor ingresar solo letras y minimo 3 caracteres).
+                        </div>
+                        <div class="valid-feedback">
+                            Apellido Validado Exitosamente.
+                        </div>
+                    </div>
+                    <input type="hidden" id="id" value="1">
+                    <div class="d-grid gap-2 col-9 mx-auto">
+                        <button class="btn btn-success" id="enviar" type="submit">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!--Script de Validación Utilizando Clase-->
+    <script src="assets/main.js"></script>
+    
+    <!--CDN JavaScript de Boostrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

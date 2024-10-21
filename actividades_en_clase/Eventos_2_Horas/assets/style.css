@@ -1,0 +1,76 @@
+/*Estilos Personalizados*/
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    background-color: #DDD5D0;
+    color: #1F0322;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 3%;
+    margin-top: 1%;
+    font-weight: bold;
+    text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
+    color: #1F0322;
+    font-size: 2.7rem;
+}
+
+.form-control-color{
+    width: 100%;
+}
+
+.btn-success{
+    background-color: #52796F;
+    border-color: #52796F;
+}
+
+.btn-success:hover{
+    background-color: #45655d;
+    border-color: #45655d;
+}
+
+.btn-danger{
+    background-color: #DA4167;
+    border-color: #DA4167;
+}
+.btn-warning{
+    background-color: #8A1C7C;
+    border-color: #8A1C7C;
+    color: white;
+    --bs-btn-active-bg: #8A1C7C;
+    --bs-btn-active-color: white;
+}
+
+.btn-warning:hover{
+    background-color: #701864;
+    border-color: #701864;
+    color: white;
+}
+
+.btn-primary{
+    background-color: #1F0322;
+    border-color: #1F0322;
+    --bs-btn-active-bg: #1F0322 ;
+}
+
+.btn-primary:hover{
+    background-color: #331940;
+    border-color: #331940;
+}
+
+.form-control{
+    border-color: #1F0322;
+}
+
+.form-check-input{
+    border-color: #1F0322;
+}
+
+.form-check-input:checked {
+    background-color: #8A1C7C;
+    border-color: #1F0322;
+}
+
+.form-select{
+    border-color: black;
+}

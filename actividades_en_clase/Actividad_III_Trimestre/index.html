@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--CDN CSS de Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--Link CSS Perosnalizado-->
+    <link rel="stylesheet" href="style.css">
+    <title>Formulario de Inscripción</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <h1>Formulario de Inscripción</h1>
+        </header>
+        <section>
+            <div class="container">
+                <form id="formulario" class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-6">
+                        <label for="nombre" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="nombre" minlength="3" pattern="[A-Za-záéúíóñÑÁÉÚÍÓ\s]+" title="Por favor ingresar solo letras" required>
+                        <div class="invalid-feedback">
+                            Nombre Invalido (por favor ingresar solo letras y minimo 3 caracteres).
+                        </div>
+                        <div class="valid-feedback">
+                            Nombre Validado Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="apellido" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="apellido" minlength="3" pattern="[A-Za-záéúíóñÑÁÉÚÍÓ\s]+" title="Por favor ingresar solo letras" required>
+                        <div class="invalid-feedback">
+                            Apellido Invalido (por favor ingresar solo letras y minimo 3 caracteres).
+                        </div>
+                        <div class="valid-feedback">
+                            Apellido Validado Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="tipo_documento" class="form-label">Tipo de Documento</label>
+                        <select id="tipo_documento" class="form-select" required>
+                            <option value="0" selected disabled>Seleccionar</option>
+                            <option id="TI" value="1">(TI) Tarteja de Identidad</option>
+                            <option value="2">(CC) Cedula de Ciudadania</option>
+                            <option value="3">(CE) Cedula de Extranjeria</option>
+                            <option value="4">(DNI) Documento Nacional de Identidad</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Tipo de Documento Invalido (No puedes seleccionar tarjeta de identidad).
+                        </div>
+                        <div class="valid-feedback">
+                            Tipo de Documento Validado Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="num_documento" class="form-label">Numero de Documento</label>
+                        <input type="number" class="form-control" id="num_documento" min="1000000000" required>
+                        <div class="invalid-feedback">
+                            Numero de Documento Invalido (por favor ingresar solo numeros y minimo 10 caracteres).
+                        </div>
+                        <div class="valid-feedback">
+                            Numero de Documento Validado Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="fecha" class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="fecha" required>
+                        <div class="invalid-feedback">
+                            Edad Invalida (Debes ser mayor de edad).
+                        </div>
+                        <div class="valid-feedback">
+                            Edad Validada Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="genero" class="form-label">Genero</label>
+                        <select id="genero" class="form-select" required>
+                            <option value="0" selected disabled>Seleccionar</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Femenino</option>
+                            <option value="3">Otro</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Genero Invalido (por favor seleccionar un genero).
+                        </div>
+                        <div class="valid-feedback">
+                            Genero Validado Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="edad" class="form-label">Edad</label>
+                        <input type="range" class="form-range" id="edad" min="1" max="100" value="0" disabled required>
+                        <span id="num_edad">0</span> años
+                    </div>
+                    <div class="col-md-6">
+                        <label for="color" class="form-label">Color Favorito</label>
+                        <input type="color" class="form-control form-control-color" value="#8A1C7C" id="color">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="num_telefono" class="form-label">Numero de Telefono</label>
+                        <input type="tel" id="num_telefono" class="form-control" pattern="[0-9]{10,}"
+                            title="Por favor ingresa al menos 10 digitos (Solo Números)" required>
+                        <div class="invalid-feedback">
+                            Numero de Telefono Invalido (Por favor ingresar solo numeros y minimo 10 digitos).
+                        </div>
+                        <div class="valid-feedback">
+                            Numero de Telefono Validado Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="habilidades" class="form-label">Habilidades</label>
+                        <div class="form-check">
+                            <input class="form-check-input" name="status" type="checkbox" value="0" id="otra" required>
+                            <label class="form-check-label" for="otra">
+                                Otra
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="status" type="checkbox" value="1" id="correr">
+                            <label class="form-check-label" for="correr">
+                                Correr
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="status" type="checkbox" value="2" id="cantar">
+                            <label class="form-check-label" for="cantar">
+                                Cantar
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="status" type="checkbox" value="4" id="volar">
+                            <label class="form-check-label" for="volar">
+                                Volar
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" name="status" type="checkbox" value="5" id="cocinar">
+                            <label class="form-check-label" for="cocinar">
+                                Cocinar
+                            </label>
+                            <div class="invalid-feedback">
+                                Debes seleccionar minimo una habilidad.
+                            </div>
+                            <div class="valid-feedback">
+                                Habilidades Validadas Exitosamente.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="hobbies" class="form-label">Hobbies</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="programar">
+                            <label class="form-check-label" for="programar">
+                                Programar
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="jugar">
+                            <label class="form-check-label" for="jugar">
+                                Jugar Videojuegos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="peliculas">
+                            <label class="form-check-label" for="peliculas">
+                                Ver Peliculas
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="leer">
+                            <label class="form-check-label" for="leer">
+                                Leer
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="estudiar">
+                            <label class="form-check-label" for="estudiar">
+                                Estudiar
+                            </label>
+                            <div class="invalid-feedback">
+                                Debes seleccionar minimo un hobbie.
+                            </div>
+                            <div class="valid-feedback">
+                                Hobbies Validados Exitosamente.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="correo" class="form-label">Correo Electronico</label>
+                        <input type="email" id="correo" class="form-control" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required>
+                        <div class="invalid-feedback">
+                            Correo Invalido (Por favor ingresar el correo en el siguiente formato "xxxx@xxx.xxx").
+                        </div>
+                        <div class="valid-feedback">
+                            Correo Validado Exitosamente.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="contraseña" class="form-label">Contraseña</label>
+                        <input type="password" id="contraseña"  class="form-control"
+                            aria-describedby="passwordHelpBlock" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[#\$*]).{8,}" required>
+                        <div id="passwordHelpBlock" class="form-text">
+                            Tu contraseña debe tener minimo 8 caracteres, una letra mayuscula, una letra minuscula
+                            y un caracter especial (#,$,*).
+                        </div>
+                        <div class="invalid-feedback">
+                            Contraseña Invalida, asegurate de que cumpla los requisitos minimos (tener minimo 8 caracteres, una letra mayuscula, una letra minuscula y un caracter especial (#,$,*).)
+                        </div>
+                        <div class="valid-feedback">
+                            Contraseña Validada Exitosamente.
+                        </div>
+                    </div>
+                    <input type="hidden" id="id" value="1">
+                    <div class="d-grid gap-2 col-9 mx-auto">
+                        <button class="btn btn-success" id="enviar" type="submit">Enviar</button>
+                        <div class="btn-group gap-2" role="group" aria-label="Basic mixed styles example">
+                            <!-- <button class="btn btn-danger" id="limpiar" type="button">Limpiar</button> -->
+                            <button class="btn btn-warning" id="disabledEdit" type="button">Editar</button>
+                            <!-- <button class="btn btn-primary" id="disabled" type="button">Inhabilitar</button> -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!--Script de Validación Utilizando Clase-->
+    <script src="validacion.js"></script>
+
+    <!--Script de controlador de eventos-->
+    <script src="controller.js"></script>
+    
+    <!--CDN JavaScript de Boostrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
