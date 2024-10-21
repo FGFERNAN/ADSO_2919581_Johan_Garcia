@@ -160,6 +160,8 @@ class validacion {
 
         //Condicional para validar si la edad ingresada es menor a 17 el tipo de documento tomara la propiedad disabled
         if (edad.value < 18) {
+
+            //Si la edad es menor de 18 años automaticamente ejecuta el metodo formDisabled que desahabilita todos los campos
             this.formDisabled();
             tipo_documento.value = 0;
             textResult = 'Edad Invalida (Debes ser mayor de edad)';
@@ -350,6 +352,7 @@ class validacion {
         return validate;
     }
 
+    //Metodo para limpiar formulario
     formClear() {
             //Se resetan todos los datos del formulario
             form.reset();
@@ -388,6 +391,7 @@ class validacion {
         
     }
 
+    //Metodo para habilitar todos los campos del formulario 
     formEnabled(){
         const inputs = document.querySelectorAll('#formulario input:not([type="range"])');
         const selects = document.querySelectorAll('#formulario select');
@@ -399,6 +403,8 @@ class validacion {
         })
     }
 
+    //Metodo para desahabilitar todos los campos del formulario menos el tipo date que controla el bloque
+    // o desbloqueo de los demas campos
     formDisabled(){
             const inputs = document.querySelectorAll('#formulario input:not([type="date"])');
             const selects = document.querySelectorAll('#formulario select');
@@ -410,6 +416,7 @@ class validacion {
             });
     }
 
+    //Metodo para desahabilitar solo algunos campos del formulario
     formDisableEdit(){
         const inputs = document.querySelectorAll('#formulario input[type="date"], input[type="text"], input[type="number"]');
         inputs.forEach(input => {
@@ -418,6 +425,8 @@ class validacion {
         genero.disabled = true;
     }
 }
+
+//PRUEBAS
 
 // const datos = new validacion(nombres, apellidos, tipo_documento, num_documento, edad, genero, telefono, habilidades, hobbies, correo, contraseña);
 // let estado = false;
