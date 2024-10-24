@@ -63,3 +63,58 @@ const book2= new Book("Don Quixote", "Miguel de Cervantes", 1605);
 
 book1.showInfo();
 console.log(book1.isMoreRecentThan(book2));
+
+
+//Cuarto Ejercicio Leer y Escribir un Archivo JSON
+import * as fs from 'fs';
+
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+}
+
+//Leer Archivo JSON 
+function readJsonFile(path: string): Product[]{
+    const data = fs.readFileSync(path, 'utf-8');
+    return JSON.parse(data);
+}
+
+//Escribir Archivo JSON 
+function writeJsonFile(path: string, products: Product[]): void{
+    const data = JSON.stringify(products, null, 2);
+    fs.writeFileSync(path, data, 'utf-8');
+}
+
+const filePath = './products.json';
+
+//Leer Data
+let products = readJsonFile(filePath);
+
+//Modificar un producto
+products[0].price = 120.99;
+
+//Escribir Cambios
+writeJsonFile(filePath, products);
+
+console.log('File updated successfully.');
+
+
+//Quinto Ejercicio Ordenar un Arreglo de Objetos
+interface Person{
+    name: string;
+    age: number;
+}
+
+function sortByAge(people: Person[]): Person[]{
+    return people.sort((a,b) => a.age - b.age);
+}
+
+const people: Person[] = [
+    {name: "John", age: 30},
+    {name: "Anna", age: 25},
+    {name: "Louis", age: 35}
+];
+
+const peopleOrdered = sortByAge(people);
+console.log(peopleOrdered);
