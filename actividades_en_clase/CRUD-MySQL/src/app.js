@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 const cors = require('cors');
 const userRoutes = require("./routes/user_routes");
 const roleRoutes = require("./routes/role_routes");
