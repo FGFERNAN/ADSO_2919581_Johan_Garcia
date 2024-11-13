@@ -6,7 +6,9 @@ const verificarPermiso = (modulo, accion) => {
         try {
             await db.connect();
             
-            const usuarioId = req.params.id; 
+            req.user = { id: 1030533364 }; // Cambia el valor de "id" por el id del usuario que quieres probar segun su rol que tre sus repectivos permisos
+            
+            const usuarioId = req.user.id;
             
             // Obtener el rol del usuario
             const getUserRole = await db.query(`SELECT rolID FROM usuarios WHERE id = ?`, [usuarioId]);

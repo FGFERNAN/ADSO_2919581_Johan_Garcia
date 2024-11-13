@@ -53,7 +53,7 @@ router.get('/:id', verificarPermiso('Modulo Usuarios', 'Consultar Usuario ID'), 
 
 /* La función `router.post('/', async (req, res) => { ... }` está manejando una solicitud POST para insertar 
 un nuevo registro de usuario en la base de datos. Aquí hay un desglose de lo que hace el código: */
-router.post('/:id', verificarPermiso('Modulo Usuarios', 'Crear Usuario'), async (req, res) => {
+router.post('/', verificarPermiso('Modulo Usuarios', 'Crear Usuario'), async (req, res) => {
   const db = new DBConnection();
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
@@ -78,15 +78,15 @@ router.post('/:id', verificarPermiso('Modulo Usuarios', 'Crear Usuario'), async 
 /* La función `router.put('/:id', async (req, res) => { ... }` maneja una solicitud PUT para actualizar la 
 información de un usuario específico en función del ID de usuario proporcionado en el parámetro URL. 
 A continuación, se muestra un desglose de lo que hace el código:*/
-router.put('/:id', async (req, res) => {
+router.put('/:id', verificarPermiso('Modulo Usuarios', 'Actualizar Usuario'), async (req, res) => {
   const db = new DBConnection();
   try {
     
     await db.connect();
-    const getUser = await db.query(`SELECT * FROM user WHERE user_id=${req.params.id}`);
+    const getUser = await db.query(`SELECT * FROM usuarios WHERE id=${req.params.id}`);
     if (Object.keys(getUser).length != 0) {
-      var dataQry = [req.body.status, req.body.role];
-      var qry = `UPDATE user SET userStatus_fk=?,role_fk=? WHERE user_id=${req.params.id};`;
+      var dataQry = [req.body.nombre, req.body.apellidos, req.body.email, req.body.telefono, req.body.rol, req.body.tipo_documento];
+      var qry = `UPDATE usuarios SET nombre=?, apellidos=?, email=?, telefono=?,  rolID=?, tipo_documento=? WHERE id=${req.params.id};`;
       // Execute a query
       const results = await db.query(qry, dataQry);
 
@@ -112,9 +112,9 @@ router.delete('/:id', verificarPermiso('Modulo Usuarios', 'Eliminar Usuario'), a
   const db = new DBConnection();
   try {
     await db.connect();
-    const getUser = await db.query(`SELECT * FROM usuarios WHERE id=${req.body.id}`);
+    const getUser = await db.query(`SELECT * FROM usuarios WHERE id=${req.params.id}`);
     if (Object.keys(getUser).length != 0) {
-      var qry = `DELETE from usuarios WHERE id=${req.body.id};`;
+      var qry = `DELETE from usuarios WHERE id=${req.params.id};`;
       // Execute a query
       const results = await db.query(qry);
       if (Object.keys(results).length != 0) {
