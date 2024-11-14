@@ -1,11 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const userRoutes = require("./routes/user_routes");
-// const roleRoutes = require("./routes/role_routes");
-// const userStatusRoutes = require("./routes/userStatus_routes");
-// const moduleRoutes = require("./routes/module_routes");
-// const roleModuleRoutes = require("./routes/roleModule_routes");
-// const loginRoutes = require("./routes/login_routes");
+const roleRoutes = require("./routes/role_routes");
+const moduleRoutes = require("./routes/module_routes");
+const loginRoutes = require("./routes/login_routes");
 
 //Declared
 const app=express();
@@ -19,11 +17,9 @@ app.use(express.json());
 /* Estas líneas de código configuran rutas para diferentes partes de la aplicación. Cada instrucción 
 `app.use` asocia una ruta específica con un conjunto correspondiente de rutas definidas en archivos separados.*/
 app.use('/api-v1/user',userRoutes);
-// app.use('/api-v1/role',roleRoutes);
-// app.use('/api-v1/userStatus',userStatusRoutes);
-// app.use('/api-v1/module',moduleRoutes);
-// app.use('/api-v1/roleModule',roleModuleRoutes);
-// app.use('/api-v1/login',loginRoutes);
+app.use('/api-v1/role',roleRoutes);
+app.use('/api-v1/module',moduleRoutes);
+app.use('/api-v1/login',loginRoutes);
 
 /* El fragmento de código `app.listen(port,()=>{ console.log(`Listener Server http://localhost:`); });`
 configura un servidor para que escuche en un puerto específico (en este caso, el puerto 4000). Cuando el
