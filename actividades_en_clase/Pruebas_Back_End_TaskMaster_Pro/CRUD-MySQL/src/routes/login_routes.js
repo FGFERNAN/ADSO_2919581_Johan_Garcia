@@ -13,9 +13,11 @@ router.post('/', async (req, res) => {
   const db = new DBConnection();
   try {
     await db.connect();
-    const getUser = await db.query(`SELECT * FROM usuarios WHERE email="${req.body.email}"`);
+    const email = req.body.email;
+    const password = req.body.password;
+    const getUser = await db.query(`SELECT * FROM usuarios WHERE email=?`, [email]);
     if (Object.keys(getUser).length != 0) {
-      const isMatch = await bcrypt.compare(req.body.password, getUser[0]['password']);
+      const isMatch = await bcrypt.compare(password, getUser[0].password);
       if (isMatch) {
         res.json({ message: "Method Post : Successful Entry", data: 'ok', status: 200});
       } else {
