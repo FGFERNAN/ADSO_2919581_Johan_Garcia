@@ -1,33 +1,16 @@
 /* Este fragmento de código importa los módulos necesarios y establece las configuraciones iniciales 
 para el controlador de ruta. A continuación, se muestra un desglose: */
 const { Router } = require("express");
-const DBConnection = require('../config/dbConnection');
 const verificarPermiso = require('../middlewares/verificarPermiso');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+const UserController = require("../controllers/userController");
 const router = Router();
 
 /* Este bloque de código específico define una ruta que maneja una solicitud GET para recuperar todos los 
 registros de la tabla "usuario" en la base de datos. A continuación, se muestra un desglose de lo que hace 
 el código:*/
-router.get('/', async (req, res) => {
-  const db = new DBConnection();
-  try {
-    await db.connect();
-    // Execute a query
-    const results = await db.query(`SELECT * FROM usuarios`);
-    if (Object.keys(results).length != 0) {
-      res.json({ message: "Method Get", data: results, status: 200 });
-    } else {
-      res.json({ message: "there are no records", data: results, status: 404 });
-    }
-  } catch (err) {
-    res.json({ message: "Error Get", data: err.message, status: 404 });
-  } finally {
-    // Close the connection
-    await db.close();
-  }
-});
+console.log(UserController);
+router.get('/', (req, res) => UserController.getAllUsers(req, res));
+
 
 /* Este bloque de código específico define una ruta que maneja una solicitud GET con un parámetro dinámico 
 `:id`. Cuando se realiza una solicitud GET a esta ruta con un ID de usuario específico proporcionado en la 
@@ -56,7 +39,7 @@ un nuevo registro de usuario en la base de datos. Aquí hay un desglose de lo qu
 router.post('/', verificarPermiso('Modulo Usuarios', 'Crear Usuario'), async (req, res) => {
   const db = new DBConnection();
   try {
-    const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
+    const hashedPassword = await bcrypt.hash(req.body.passwordd, saltRounds);
     var dataQry = [req.body.id, req.body.nombre, req.body.apellidos, req.body.email, req.body.telefono, hashedPassword, req.body.rol, req.body.tipo_documento];
     var qry = `INSERT INTO usuarios (id, nombre, apellidos, email, telefono, password, rolID, tipo_documento) VALUES(?,?,?,?,?,?,?,?);`;
     await db.connect();
@@ -68,7 +51,7 @@ router.post('/', verificarPermiso('Modulo Usuarios', 'Crear Usuario'), async (re
       res.json({ message: "Method Post ", data: 'error', status: 404 });
     }
   } catch (err) {
-    res.json({ message: "Error Post ", data: err.message, status: 404 });
+    res.json({ message: "Error Post", data: err.message, status: 404 });
   } finally {
     // Close the connection
     await db.close();
