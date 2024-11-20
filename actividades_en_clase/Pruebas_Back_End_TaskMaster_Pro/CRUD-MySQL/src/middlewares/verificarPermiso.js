@@ -4,7 +4,6 @@ const verificarPermiso = (modulo, accion) => {
     return async (req, res, next) => {
         const db = new DBConnection();
         try {
-            await db.connect();
             
             req.user = { id: 1030533364 }; // Cambia el valor de "id" por el id del usuario que quieres probar segun su rol que tre sus repectivos permisos
             
@@ -36,8 +35,6 @@ const verificarPermiso = (modulo, accion) => {
         } catch (error) {
             console.error("Error en el middlaware verificarPermisos: ",error.message);
             res.status(500).json({ mensaje: "Error en la verificación de permisos" });
-        } finally {
-            await db.close();
         }
     };
 };

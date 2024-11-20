@@ -1,9 +1,12 @@
 const express = require('express');
 const cors = require('cors');
+const DBConnection = require('./config/dbConnection');
 const userRoutes = require("./routes/user_routes");
 const roleRoutes = require("./routes/role_routes");
 const moduleRoutes = require("./routes/module_routes");
 const loginRoutes = require("./routes/login_routes");
+
+const db = new DBConnection();
 
 //Declared
 const app=express();
@@ -25,7 +28,17 @@ app.use('/api-v1/login',loginRoutes);
 configura un servidor para que escuche en un puerto específico (en este caso, el puerto 4000). Cuando el
 servidor se inicia correctamente y escucha en el puerto especificado, registrará un mensaje en la
 consola indicando que el servidor está en ejecución y es accesible en `http://localhost:4000`. */
-app.listen(port,()=>{
+const server = app.listen(port,()=>{
   console.log(`Listener Server http://localhost:${port}`);
+});
+
+// Cierra el pool al detener el servidor
+process.on('SIGINT', async () => {
+  console.log('Closing server...');
+  await db.close(); 
+  server.close(() => {
+      console.log('Server stopped');
+      process.exit(0);
+  });
 });
 
