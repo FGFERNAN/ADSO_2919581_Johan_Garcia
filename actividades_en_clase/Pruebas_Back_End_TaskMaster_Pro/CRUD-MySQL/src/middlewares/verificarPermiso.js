@@ -4,8 +4,9 @@ const verificarPermiso = (modulo, accion) => {
     return async (req, res, next) => {
         const db = new DBConnection();
         try {
-            
-            req.user = { id: 1030533364 }; // Cambia el valor de "id" por el id del usuario que quieres probar segun su rol que tre sus repectivos permisos
+
+            // Cambia el valor de "id" por el id del usuario que quieres probar segun su rol que tre sus repectivos permisos
+            req.user = { id: 1030533364 }; 
             
             const usuarioId = req.user.id;
 
@@ -21,6 +22,8 @@ const verificarPermiso = (modulo, accion) => {
 
             const rolId = getUserRole[0].rolID;
 
+            // Llamada al procedimiento almacenado creado para la consulta de permisos
+        
             const procedure = 'CALL consultarPermisos(?,?,?)';
 
             // Consultar si el rol tiene el permiso en el módulo y acción específicos
@@ -32,8 +35,9 @@ const verificarPermiso = (modulo, accion) => {
             }
 
             next(); // El usuario tiene permiso, proceder al siguiente middleware o controlador
+
         } catch (error) {
-            console.error("Error en el middlaware verificarPermisos: ",error.message);
+            console.error("Error en el middlaware verificarPermisos: ", error.message);
             res.status(500).json({ mensaje: "Error en la verificación de permisos" });
         }
     };

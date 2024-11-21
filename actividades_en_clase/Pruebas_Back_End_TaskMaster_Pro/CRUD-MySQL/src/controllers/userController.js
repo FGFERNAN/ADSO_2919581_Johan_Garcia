@@ -25,8 +25,8 @@ class UserController{
 
     createUser = async (req, res) => {
         try {
-            const message = await this.userService.createUser(req.body);
-            res.status(201).json(message);
+            const newUser = await this.userService.createUser(req.body);
+            res.status(201).json(newUser);
         } catch(err) {
             res.status(500).json({ message: err.message });
         }
