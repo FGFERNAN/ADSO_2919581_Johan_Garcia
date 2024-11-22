@@ -2,36 +2,11 @@
 del controlador de ruta para los datos de inicio de sesión del usuario. A continuación, se muestra un 
 desglose: */
 const { Router } = require("express");
-const DBConnection = require('../config/dbConnection');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+const LoginController = require('../controllers/loginController');
 const router = Router();
 
 /* Este fragmento de código define un controlador de ruta POST mediante Express.js. A continuación, 
 se muestra un desglose de lo que hace: */
-router.post('/', async (req, res) => {
-  const db = new DBConnection();
-  try {
-    await db.connect();
-    const email = req.body.email;
-    const password = req.body.password;
-    const getUser = await db.query(`SELECT * FROM usuarios WHERE email=?`, [email]);
-    if (Object.keys(getUser).length != 0) {
-      const isMatch = await bcrypt.compare(password, getUser[0].password);
-      if (isMatch) {
-        res.json({ message: "Method Post : Successful Entry", data: 'ok', status: 200});
-      } else {
-        res.json({ message: "Method Post : Password Error", data: 'error', status: 404 });
-      }
-    } else {
-      res.json({ message: "Method Post : The user not created", data: 'error', status: 404 });
-    }
-  } catch (err) {
-    res.json({ message: "Error Post ", data: err.message,status: 404 });
-  } finally {
-    // Close the connection
-    await db.close();
-  }
-})
+router.post('/', LoginController.login);
 
 module.exports = router;
