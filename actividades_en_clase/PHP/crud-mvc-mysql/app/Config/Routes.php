@@ -9,13 +9,10 @@
 namespace App\Config;
 
 use App\Controllers\ErrorController;
-use App\Controllers\ModuleController;
-use App\Controllers\RoleController;
-use App\Controllers\RoleModuleController;
-use App\Controllers\UserController;
-use App\Controllers\UserStatusController;
+
 
 use Exception;
+
 class Routes
 {
   private $url;
@@ -45,6 +42,9 @@ class Routes
   private function handleRequest()
   {
     try {
+      $filter = new Filter();
+      $filterMethod = "";
+      $filterValidate = true;
       $replace = str_replace($this->reference, "", substr($this->url, strpos($this->url, $this->reference)));
       if ($replace != "") {
         $newUrl = explode("/", $replace);
@@ -56,12 +56,21 @@ class Routes
           $this->attributes =  $newUrl[2];
         }
         $resultRoute = $this->getRoutes($this->controller, $this->method);
-        if ($resultRoute["controller"] != "ErrorController") {
-          if ($_SERVER['REQUEST_METHOD'] === $resultRoute['REQUEST']) {
-            $class = "App\\Controllers\\" . $resultRoute['controller'];
-            $method = $resultRoute['method'];
-            $controller = new $class();
-            $controller->$method($this->attributes);
+        if (!empty($resultRoute["filter"])) {
+          $filterMethod = $resultRoute["filter"];
+          $filterValidate = $filter->$filterMethod();
+        }
+        if ($filterValidate) {
+          if ($resultRoute["controller"] != "ErrorController") {
+            if ($_SERVER['REQUEST_METHOD'] === $resultRoute['REQUEST']) {
+              $class = "App\\Controllers\\" . $resultRoute['controller'];
+              $method = $resultRoute['method'];
+              $controller = new $class();
+              $controller->$method($this->attributes);
+            } else {
+              $controller = new ErrorController();
+              $controller->index();
+            }
           } else {
             $controller = new ErrorController();
             $controller->index();
@@ -79,22 +88,22 @@ class Routes
     }
   }
 
- /**
-  * The function `getRoutes` retrieves routes based on the specified controller and method.
-  * 
-  * @param controller The `controller` parameter in the `getRoutes` function is used to specify which
-  * set of routes to retrieve. It determines which array of routes to look into based on the controller
-  * name provided.
-  * @param method The `getRoutes` function you provided seems to be a routing mechanism for different
-  * controllers and methods. The function takes two parameters: `` and ``. The
-  * `` parameter is used to determine which controller's routes to fetch, and the ``
-  * parameter is used to find a
-  * 
-  * @return The function `getRoutes` returns an array containing information about the route based on
-  * the provided controller and method. If the specified controller and method match any of the
-  * predefined routes, the function returns the corresponding route information. If no matching route
-  * is found, it returns the default error route information.
-  */
+  /**
+   * The function `getRoutes` retrieves routes based on the specified controller and method.
+   * 
+   * @param controller The `controller` parameter in the `getRoutes` function is used to specify which
+   * set of routes to retrieve. It determines which array of routes to look into based on the controller
+   * name provided.
+   * @param method The `getRoutes` function you provided seems to be a routing mechanism for different
+   * controllers and methods. The function takes two parameters: `` and ``. The
+   * `` parameter is used to determine which controller's routes to fetch, and the ``
+   * parameter is used to find a
+   * 
+   * @return The function `getRoutes` returns an array containing information about the route based on
+   * the provided controller and method. If the specified controller and method match any of the
+   * predefined routes, the function returns the corresponding route information. If no matching route
+   * is found, it returns the default error route information.
+   */
   private function getRoutes($controller, $method)
   {
     $userRoutes = [
@@ -104,17 +113,31 @@ class Routes
       ["method" => "update", "REQUEST" => "POST", "controller" => "UserController"],
       ["method" => "edit", "REQUEST" => "GET", "controller" => "UserController"],
       ["method" => "delete", "REQUEST" => 'POST', "controller" => "UserController"],
-      ["method" => "index", "REQUEST" => "GET", "controller" => "UserController"],
-      ["method" => "viewCreate", "REQUEST" => 'GET', "controller" => "UserController"],
-      ["method" => "viewDelete", "REQUEST" => 'GET', "controller" => "UserController"],
+      ["method" => "index", "REQUEST" => "GET", "controller" => "UserController", "filter" => "logIn"],
+      ["method" => "viewCreate", "REQUEST" => 'GET', "controller" => "UserController","filter" => "logIn"],
+      ["method" => "viewDelete", "REQUEST" => 'GET', "controller" => "UserController","filter" => "logIn"],
+    ];
+    $loginRoutes = [
+      ["method" => "logIn", "REQUEST" => "POST", "controller" => "LoginController"],
+      ["method" => "logOut", "REQUEST" => "GET", "controller" => "LoginController"],
+      ["method" => "lostPassword", "REQUEST" => "POST", "controller" => "LoginController"],
+      ["method" => "index", "REQUEST" => 'GET', "controller" => "LoginController"],
+      ["method" => "viewLostPassword", "REQUEST" => 'GET', "controller" => "LoginController"],
+      ["method" => "viewPasswordChange", "REQUEST" => 'GET', "controller" => "LoginController"],
+    ];
+    $homeRoutes = [
+      ["method" => "dashboard", "REQUEST" => "GET", "controller" => "HomeController", "filter" => "logIn"],
     ];
     $roleRoutes = [
       ["method" => "create", "REQUEST" => "POST", "controller" => "RoleController"],
       ["method" => "show", "REQUEST" => "GET", "controller" => "RoleController"],
       ["method" => "showId", "REQUEST" => "GET", "controller" => "RoleController"],
-      ["method" => "update", "REQUEST" => "PUT", "controller" => "RoleController"],
-      ["method" => "delete", "REQUEST" => 'DELETE', "controller" => "RoleController"],
-      ["method" => "index", "REQUEST" => "GET", "controller" => "RoleController"],
+      ["method" => "update", "REQUEST" => "POST", "controller" => "RoleController"],
+      ["method" => "edit", "REQUEST" => "GET", "controller" => "RoleController"],
+      ["method" => "delete", "REQUEST" => 'POST', "controller" => "RoleController"],
+      ["method" => "index", "REQUEST" => "GET", "controller" => "RoleController", "filter" => "logIn"],
+      ["method" => "viewCreate", "REQUEST" => 'GET', "controller" => "RoleController","filter" => "logIn"],
+      ["method" => "viewDelete", "REQUEST" => 'GET', "controller" => "RoleController","filter" => "logIn" ],
     ];
     $userStatusRoutes = [
       ["method" => "create", "REQUEST" => "POST", "controller" => "UserStatusController"],
@@ -140,17 +163,17 @@ class Routes
       ["method" => "delete", "REQUEST" => 'DELETE', "controller" => "RoleModuleController"],
       ["method" => "index", "REQUEST" => "GET", "controller" => "RoleModuleController"],
     ];
-
     $errorRoutes = [
       ["method" => "index", "REQUEST" => "GET", "controller" => "ErrorController"]
     ];
     $this->routes["user"] = $userRoutes;
+    $this->routes["home"] = $homeRoutes;
+    $this->routes["login"] = $loginRoutes;
     $this->routes["role"] = $roleRoutes;
     $this->routes["userStatus"] = $userStatusRoutes;
     $this->routes["module"] = $moduleRoutes;
     $this->routes["roleModule"] = $roleModuleRoutes;
     $this->routes["error"] = $errorRoutes;
-
     if (empty($this->routes[$controller])) {
       return $this->routes["error"][0];
     }
