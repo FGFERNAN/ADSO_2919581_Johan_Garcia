@@ -14,7 +14,7 @@ class LoginService{
             if (Object.keys(getUser).length != 0) {
                 const isMatch = await bcrypt.compare(password, getUser[0].password);
                 if(isMatch){
-                    return { message: "Successful Entry" };
+                    return { id: getUser[0].id, message: "Successful Entry" };
                 } else {
                     throw new Error("Password Error");
                 }

@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const session = require('express-session');
 const DBConnection = require('./config/dbConnection');
 const userRoutes = require("./routes/user_routes");
 const roleRoutes = require("./routes/role_routes");
@@ -8,6 +9,7 @@ const loginRoutes = require("./routes/login_routes");
 
 const db = new DBConnection();
 
+
 //Declared
 const app=express();
 const port=4000;
@@ -15,6 +17,18 @@ const port=4000;
 //Middleware
 app.use(cors());
 app.use(express.json());
+
+app.use(session({
+  secret: 'holaMundo1234',
+  resave: false,
+  saveUninitialized: false,
+  rolling: true,
+  cookie: {
+      secure: false,       
+      httpOnly: true,     
+      maxAge: 3600000    
+  }
+}));
 
 //Routes
 /* Estas líneas de código configuran rutas para diferentes partes de la aplicación. Cada instrucción 

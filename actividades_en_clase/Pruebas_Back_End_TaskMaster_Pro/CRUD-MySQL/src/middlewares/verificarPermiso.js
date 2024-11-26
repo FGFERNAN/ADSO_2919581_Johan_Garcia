@@ -6,9 +6,12 @@ const verificarPermiso = (modulo, accion) => {
         try {
 
             // Cambia el valor de "id" por el id del usuario que quieres probar segun su rol que tre sus repectivos permisos
-            req.user = { id: 1030533364 }; 
             
-            const usuarioId = req.user.id;
+            const usuarioId = req.session.userId;
+
+            if(!usuarioId){
+                return res.status(401).json({ mensaje: "Usuario no autenticado" });
+            }
 
             if(!modulo || !accion){
                 return res.status(400).json({ mensaje: "Parametros invalidos"});
