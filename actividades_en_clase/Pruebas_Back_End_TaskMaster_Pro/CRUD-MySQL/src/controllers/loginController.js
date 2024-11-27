@@ -18,6 +18,16 @@ class LoginController{
             res.status(401).json({ message: err.message });
         };
     }
+
+    logout = async (req, res) => {
+        req.session.destroy((err) => {
+            if (err) {
+                return res.status(500).json({ message: "Error al cerrar sesión" });
+            }
+            res.clearCookie('connect.sid'); // Limpia la cookie de sesión
+            return res.status(200).json({ message: "Sesión cerrada exitosamente" });
+        });
+    }
 }
 
 module.exports = new LoginController();
