@@ -1,0 +1,121 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e1e1e1;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DAF5E3;
+    border: 2px solid #000000;
+    border-radius: 8px;
+}
+
+.container1 {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #E4E2DD;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #E4E2DD;
+    border-radius: 8px 8px 0 0;
+}
+
+.header h2 {
+    margin: 0;
+}
+
+.notifications {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notification-count {
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    border-color: white;
+}
+
+.notification-count:hover {
+    background-color: #6DA2C1;
+    border-color: #6DA2C1;
+}
+
+.notification-item {
+    background-color: white;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.notification-item .icon {
+    background-color: #e1e1e1;
+    border-radius: 50%;
+    padding: -1px;
+}
+
+.buton-regresar {
+    background-color: #2E7060;
+    color: white;
+    align-items: right;
+
+}
+
+.buton-regresar {
+    background-color: #2E7060;
+    color: white;
+    border-color: #2E7060;
+    font-weight: bold;
+    margin-block-end: 1em;
+}
+
+.buton-regresar:hover {
+    background-color: #204b42;
+    border-color: #2E7060;
+    color: #ffffff;
+}
+
+span {
+    font-size: large;
+    font-weight: bold;
+}
+
+.logo {
+    margin-block-start: -6em;
+}
+
+.btn-primary {
+    --bs-btn-active-color: black;
+    --bs-btn-active-bg: #DAF5E3;
+    --bs-btn-active-border-color: #DAF5E3;
+}
+
+.notificaciones{
+    margin-block-start: 10em;
+}
+

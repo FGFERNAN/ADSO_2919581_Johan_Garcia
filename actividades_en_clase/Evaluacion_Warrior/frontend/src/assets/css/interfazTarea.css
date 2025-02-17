@@ -1,0 +1,240 @@
+/* Fondo blanco para el body */
+body {
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Ajuste de tamaño para inputs y selects */
+.form-control, .form-select {
+    padding: 1% 4%; /* Ajusta el padding interno */
+    width: 100%; /* Puedes ajustar el ancho según sea necesario */
+    max-width: 40%; /* Limita el ancho máximo si es necesario */
+}
+
+.mi-form{
+    max-width: 100%;
+}
+
+.input-icon-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido del contenedor */
+    position: relative;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente los iconos */
+    margin-left: 10px; /* Espacio entre el input y los iconos */
+}
+
+.collapse-section {
+    display: block;
+    margin-left: 10px; /* Espacio entre los iconos */
+}
+
+.collapse-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.main-content-container {
+    padding: 5%; /* Ajuste de padding */
+    margin-left: 5%; /* Añade margen para que no esté pegado al menú */
+    margin-right: 5%;
+    width: 90%; /* Ajusta el ancho del container */
+    margin-top: 4%; /* Añade margen superior para centrar verticalmente */
+    height: 85%; /* Ajusta la altura del container para hacerlo más largo hacia abajo */
+    background-color: #E4E2DD;
+    border: 2px solid #000;
+}
+
+.top-right-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.top-right-buttons .btn1 {
+    background-color: #DCD2BA;
+    color: black;
+    border: none;
+    font-weight: bold;
+}
+
+.task-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.task-buttons .btn-tarea {
+    background-color: #DAF5E3;
+    color: black;
+    border: none;
+    font-weight: bold;
+    cursor: auto;
+    font-size: 1.5em;
+    border-radius: 5px;
+}
+
+.task-buttons .btn-danger {
+    background-color: #2E7060;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px 15px;
+    
+}
+
+.btn-danger:hover{
+    background-color:  #204b42;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    margin-bottom: 15px;
+}
+
+.input-icon-container {
+    position: relative;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+}
+
+.icon-container button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.icon-container button span {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.collapse-content {
+    display: none;
+}
+
+.bottom-right-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Ajustes para los botones de la parte superior derecha */
+.main-content-container .btn1 {
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.main-content-container .btn1:hover{
+    background-color: #6DA2C1;
+    border: none;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #DCD2BA;
+    border: none;
+    color: black;
+    border: 1px solid black;
+}
+
+.btn-primary:hover {
+    background-color: #6DA2C1;
+    border: none;
+    color: white;
+    border: 1px solid #6DA2C1;
+}
+
+.btn-primary{
+    --bs-btn-active-color: black;
+    --bs-btn-active-bg: #DAF5E3;
+    --bs-btn-active-border-color: #DAF5E3;
+  }
+  
+.top-buttons {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    z-index: 1000; /* Asegura que los íconos estén por encima del contenido */
+}
+
+.top-buttons .icon {
+    font-size: 150%; /* Tamaño del ícono */
+    color: black; /* Color del ícono */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    display: flex; /* Alinea el contenido */
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    width: 40px; /* Tamaño del contenedor del ícono */
+    height: 40px; /* Tamaño del contenedor del ícono */
+   
+    
+}
+
+.top-buttons .btn-logout {
+    background-color: #DAF5E3;
+}
+
+.top-buttons .btn-profile {
+    background-color: #6DA2C1; 
+}
+
+.top-buttons .btn:hover {
+    opacity: 0.9; /* Efecto de hover */
+    background-color: #6DA2C1;
+}
+
+.buton-descargar{
+    border: none;
+    background-color: white;
+}
+
+.buton-descargar:hover{
+    color: #6DA2C1 !important;
+    text-decoration: underline;
+}
+
+.mi-card:hover{
+    border-radius: 4px;
+    border: 1px solid black
+}
+
+.mi-buton{
+    background-color: #6DA2C1;
+    border-color: #6DA2C1;
+}
+
+.mi-buton:hover{
+    background-color: #DAF5E3;
+    color: black;
+}
