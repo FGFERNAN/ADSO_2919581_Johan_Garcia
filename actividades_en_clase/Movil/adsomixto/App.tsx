@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { HomeScreen } from './src/views/home/home';
-import { RegisterScreen } from './src/views/register/register';
+import { HomeScreen } from './src/presentation/views/home/home';
+import { RegisterScreen } from './src/presentation/views/register/register';
 
 export type RootStackParamList = {
   HomeScreen: undefined;
