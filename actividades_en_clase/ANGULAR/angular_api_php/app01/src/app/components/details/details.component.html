@@ -1,0 +1,29 @@
+1. <article>
+    2. <img 3. class="listing-photo" 4. [src]="housingLocation?.photo" 5.
+        alt="Exterior photo of {{ housingLocation?.name }}" 6. crossorigin 7. />
+    8. <section class="listing-description">
+        9. <h2 class="listing-heading">{{ housingLocation?.name }}</h2>
+        10. <p class="listing-location">{{ housingLocation?.city }}, {{ housingLocation?.state }}</p>
+        11. </section>
+    12. <section class="listing-features">
+        13. <h2 class="section-heading">About this housing location</h2>
+        14. <ul>
+            15. <li>Units available: {{ housingLocation?.availableUnits }}</li>
+            16. <li>Does this location have wifi: {{ housingLocation?.wifi }}</li>
+            17. <li>Does this location have laundry: {{ housingLocation?.laundry }}</li>
+            18. </ul>
+        19. </section>
+    <section>
+        <h2>Apply now to live here</h2>
+        <form [formGroup]="formAngular" (submit)="onSubmit()">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" formControlName="firstName" />
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" formControlName="lastName" />
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email" />
+            <button type="submit" class="primary">Apply now </button>
+        </form>
+    </section>
+    20.
+</article>

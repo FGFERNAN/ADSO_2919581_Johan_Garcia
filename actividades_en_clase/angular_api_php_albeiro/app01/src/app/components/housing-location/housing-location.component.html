@@ -1,0 +1,14 @@
+<nav>
+  <a routerLink="/locations">Ver Ubicaciones</a>
+</nav>
+
+<div>
+  <h2>Ubicaciones de Viviendas</h2>
+  <ul>
+    <li *ngFor="let location of locations">
+      <h3>{{ location.name }} - {{ location.city }}, {{ location.state }}</h3>
+      <p>Unidades disponibles: {{ location.availableUnits }}</p>
+      <!-- <button (click)="deleteLocation(location.id!)">Eliminar</button> -->
+    </li>
+  </ul>
+</div>
