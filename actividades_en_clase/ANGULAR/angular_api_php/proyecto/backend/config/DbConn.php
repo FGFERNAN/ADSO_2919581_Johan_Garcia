@@ -11,7 +11,7 @@
                       $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                       return $pdo;
                   } catch (Exception $e) {
-                      print "¡Error BD!: "  $e->getMessage()  "<br/>";
+                      print "¡Error BD!: " . $e->getMessage() . "<br/>";
                       die();
                   }
               }

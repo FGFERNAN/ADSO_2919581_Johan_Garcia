@@ -5,7 +5,7 @@
         header('Content-Type: application/json');
 
         require_once "../config/DbConn.php";
-        require_once("../models/Location.php");
+        require_once("../models/location.php");
 
         $location = new Location;
 
