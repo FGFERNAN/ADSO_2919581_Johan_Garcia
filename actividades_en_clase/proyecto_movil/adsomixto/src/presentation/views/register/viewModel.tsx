@@ -29,34 +29,36 @@ const RegisterViewModel = () => {
     const isValidForm = () : boolean => {
       if(values.name === ''){
         setErrorMessage('El nombre es requerido');
-        return false;
+        return true;
       }
 
       if(values.lastname === ''){
         setErrorMessage('El apellido es requerido');
-        return false;
+        return true;
       }
       if(values.email === ''){
         setErrorMessage('El email es requerido');
-        return false;
+        return true;
       }
       if(values.phone === ''){
         setErrorMessage('El numero de telefono es requerido');
-        return false;
+        return true;
       }
       if(values.password === ''){
         setErrorMessage('La contraseña es requerida');
-        return false;
+        return true;
       }
       if(values.confirmPassword === ''){
         setErrorMessage('La confirmación de contraseña es requerida');
-        return false;
+        return true;
       }
-      if(values.password !== values.confirmPassword){
+      if(values.password === values.confirmPassword){
+        return false;
+      } else {
         setErrorMessage('La contraseñas no coinciden');
-        return false;
+        return true;
       }
-      return true;
+      
     }
   return {
     ...values,
