@@ -15,7 +15,7 @@ const keys = require('../config/keys');
                     error: err
                 });
             }
-            if(!MyUser){//Cliente sin autorización para realizar la petición{
+            if(!MyUser){//Cliente sin autorización para realizar la petición
                 return res.status(401).json({
                     succes: false,
                     message: 'El email no existe en la base de datos'
