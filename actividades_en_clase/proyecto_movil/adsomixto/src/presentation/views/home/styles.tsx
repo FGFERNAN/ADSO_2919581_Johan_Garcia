@@ -21,7 +21,7 @@ const homeStyles = StyleSheet.create({
         bottom: 0,
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40,
-        padding: 30,
+        padding: 15,
     },
 
     formText: {

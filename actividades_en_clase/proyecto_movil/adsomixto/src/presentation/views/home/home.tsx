@@ -10,22 +10,24 @@ import styles from './styles';
 
 interface Props extends StackScreenProps<RootStackParamList, 'HomeScreen'>{};
 
-export const HomeScreen = ({navigation, route}: Props) => {
-    const { email, password, errorMessage, user, onChange, login } = useViewModel();
+export const HomeScreen = ({ navigation, route }: Props) => {
 
-    // const navigation =
-    //     useNavigation<StackNavigationProp<RootStackParamList>>();
-    useEffect(() => {
-        if (errorMessage !== '') {
-            ToastAndroid.show(errorMessage, ToastAndroid.LONG);
-        }
-    }, [errorMessage]);
+  const { email, password, errorMessage, user, onChange, login } = useViewModel();
 
-    useEffect(() => {
-        if(user?.id !== null && user?.id !== undefined){
-            navigation.replace('ProfileInfoScreen');
-        }
-    }, [user]);
+  //const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
+  useEffect(() => {
+    if (errorMessage !== '') {
+      ToastAndroid.show(errorMessage, ToastAndroid.LONG);
+    }
+  }, [errorMessage]);
+
+  useEffect(() => {
+    if (user?.id !== null && user?.id !== undefined) {
+      navigation.replace('ProfileInfoScreen');
+    }
+  }, [user])
+
 
     return (
         <View style={styles.container}>
@@ -38,11 +40,11 @@ export const HomeScreen = ({navigation, route}: Props) => {
                     source={require('../../../../assets/logo.png')}
                     style={styles.logoImage}
                 />
-                <Text style={styles.logoText}>FOOD Fgfernan</Text>
+                <Text style={styles.logoText}>FOOD FGFERNAN</Text>
             </View>
 
             <View style={styles.form}>
-                <Text style={styles.formText}>Ingresar</Text>
+                <Text style={styles.formText}>INGRESAR</Text>
                 <CustomTextInput
                     image={require('../../../../assets/email.png')}
                     placeholder='Correo Electronico'
@@ -63,14 +65,13 @@ export const HomeScreen = ({navigation, route}: Props) => {
                 />
 
                 <View style={{ marginTop: 30 }}>
-                    <RoundedButton text='Entrar' onPress={() => login()} 
+                    <RoundedButton text='ENTRAR' onPress={() => login()}
                     />
                 </View>
                 <View style={styles.formRegister}>
                     <Text>¿No tienes cuenta ?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('RegisterScreen')}>
                         <Text style={styles.formRegisterText}>Registrate</Text>
-                        <Text style={styles.formRegisterText}></Text>
                     </TouchableOpacity>
                 </View>
             </View >

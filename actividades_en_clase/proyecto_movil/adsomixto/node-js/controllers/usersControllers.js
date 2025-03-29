@@ -17,7 +17,7 @@ const keys = require('../config/keys');
             }
             if(!MyUser){//Cliente sin autorización para realizar la petición
                 return res.status(401).json({
-                    succes: false,
+                    success: false,
                     message: 'El email no existe en la base de datos'
                 });
             }
@@ -35,7 +35,7 @@ const keys = require('../config/keys');
                     session_token: `JWT ${token}`
                 }
                 return res.status(201).json({
-                    succes: true,
+                    success: true,
                     message: 'Usuario Autenticado',
                     data: data
                 });

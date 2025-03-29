@@ -34,11 +34,11 @@
     "typescript": "^5.3.3"
   },
   "private": true,
-  "description": "App Nikol",
+  "description": "App Fgfernan",
   "keywords": [
     "ReactNative",
     "NodeJs"
   ],
-  "author": "Nikol",
+  "author": "Fgfernan",
   "license": "MIT"
 }

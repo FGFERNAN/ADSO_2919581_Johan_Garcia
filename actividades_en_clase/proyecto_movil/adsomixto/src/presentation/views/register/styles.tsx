@@ -15,54 +15,19 @@ const registerStyles = StyleSheet.create({
 
     form: {
         width: '100%',
-        height: '75%',
+        height: '70%',
         backgroundColor: 'white',
         position: 'absolute',
         bottom: 0,
         borderTopLeftRadius: 40,
         borderTopRightRadius: 40,
-        padding: 30,
+        padding: 10,
     },
 
     formText: {
         fontWeight: 'bold',
-        fontSize: 16,
+        fontSize: 17,
 
-    },
-
-    formIcon: {
-        width: 25,
-        height: 25,
-        marginTop: 5,
-    },
-
-
-    formInput: {
-        flex: 1,
-        borderBottomWidth: 1,
-        borderBottomColor: 'red',
-        marginLeft: 15,
-    },
-
-    formTextInput: {
-        flex: 1,
-        borderBottomWidth: 1,
-        borderBottomColor: 'red',
-    },
-
-    formRegister: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: 30,
-    },
-
-    formRegisterText: {
-        fontStyle: 'italic',
-        color: 'orange',
-        borderBottomWidth: 1,
-        borderBottomColor: 'orange',
-        fontWeight: 'bold',
-        marginLeft: 10,
     },
 
     logoContainer: {

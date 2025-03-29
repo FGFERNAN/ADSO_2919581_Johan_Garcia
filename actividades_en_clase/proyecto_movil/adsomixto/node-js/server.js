@@ -13,7 +13,7 @@ const usersRoutes = require('./routes/userRoutes');
 const port = process.env.PORT || 3000;
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extendd: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -27,7 +27,7 @@ app.set('port', port);
 usersRoutes(app);
 // Iniciando el servidor
 // Direction ip V4 de la maquina consultar ipconfig
-server.listen(3000, '192.168.80.19' || 'localhost',
+server.listen(3000, '192.168.80.16' || 'localhost',
     function () {
         console.log('Aplicacion de NodeJS ' + process.pid + ' ejecutando en ' +
             server.address().address + ' : ' + server.address().port
