@@ -39,7 +39,6 @@ export const ProfileInfoScreen = ({ navigation, route }: Props) => {
                     <Text style={styles.buttonText}>Cerrar Sesión</Text>
                 </TouchableOpacity>
             </View>
-            <ScrollView>
                 <Text style={styles.title}>Productos</Text>
                 <FlatList
                     data={products}
@@ -63,7 +62,6 @@ export const ProfileInfoScreen = ({ navigation, route }: Props) => {
                         </View>
                     )}
                 />
-            </ScrollView>
             <TextInput
                 style={styles.input}
                 placeholder="Nombre"
