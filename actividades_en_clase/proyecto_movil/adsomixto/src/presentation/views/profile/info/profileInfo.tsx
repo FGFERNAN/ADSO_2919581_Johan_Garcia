@@ -1,6 +1,6 @@
 import { StackScreenProps } from "@react-navigation/stack";
 import React from "react";
-import { View, Text, FlatList, Button, TextInput, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, FlatList, Button, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { RootStackParamList } from "../../../../../App";
 import useViewModel from './viewModel';
 import Modal from 'react-native-modal';
