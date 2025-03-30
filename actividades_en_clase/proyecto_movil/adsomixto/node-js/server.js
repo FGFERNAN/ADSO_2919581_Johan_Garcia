@@ -9,6 +9,7 @@ const cors = require('cors');
 //** importar las rutas**//
 
 const usersRoutes = require('./routes/userRoutes');
+const productsRoutes = require('./routes/productsRoutes');
 
 const port = process.env.PORT || 3000;
 app.use(logger('dev'));
@@ -25,9 +26,10 @@ app.disable('x-powered-by');// Disable the x-powered-by header in the response
 app.set('port', port);
 //*Llamado de rutas//
 usersRoutes(app);
+productsRoutes(app);
 // Iniciando el servidor
 // Direction ip V4 de la maquina consultar ipconfig
-server.listen(3000, '10.1.193.163' || 'localhost',
+server.listen(3000, '192.168.80.15' || 'localhost',
     function () {
         console.log('Aplicacion de NodeJS ' + process.pid + ' ejecutando en ' +
             server.address().address + ' : ' + server.address().port

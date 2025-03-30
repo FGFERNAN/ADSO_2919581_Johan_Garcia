@@ -5,7 +5,7 @@ user.findById = (id, result) => {
     const sql = `SELECT id, email, name, lastname, phone, image, password FROM users WHERE id = ?`;
     db.query(sql,
         [id], (err, user) => {
-            if (err){
+            if (err) {
                 console.log('Error al consultar: ', err);
                 result(err, null);
             } else {
@@ -21,7 +21,7 @@ user.findByEmail = (email, result) => {
         sql,
         [email],
         (err, user) => {
-            if(err){
+            if (err) {
                 console.log('Error al consultar: ', err);
                 result(err, null);
             } else {
@@ -67,8 +67,8 @@ user.create = async (user, result) => {
             }
 
             else {
-                console.log('Id del nuevo usuario: ', {id: res.insertId, ...user});
-                result(null, {id: res.insertId, ...user});
+                console.log('Id del nuevo usuario: ', { id: res.insertId, ...user });
+                result(null, { id: res.insertId, ...user });
 
             }
         }
