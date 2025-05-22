@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Registro de usuario nuevo en la pagina de DemoQA" tests="1" skipped="1" failures="0" errors="0" timestamp="2025-05-22T22:06:56" hostname="DESKTOP-9S50AII" time="0.091">
+<testsuite name="Registro de usuario nuevo en la pagina de DemoQA" tests="1" skipped="1" failures="0" errors="0" timestamp="2025-05-22T22:10:31" hostname="DESKTOP-9S50AII" time="0.111">
   <properties/>
-  <testcase name="Registro Exitosamente" classname="Registro de usuario nuevo en la pagina de DemoQA" time="0.091">
+  <testcase name="Registro Exitosamente" classname="Registro de usuario nuevo en la pagina de DemoQA" time="0.111">
     <skipped/>
   </testcase>
   <system-out><![CDATA[]]></system-out>
