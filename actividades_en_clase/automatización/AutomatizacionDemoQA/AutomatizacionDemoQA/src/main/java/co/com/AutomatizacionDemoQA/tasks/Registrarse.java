@@ -34,6 +34,11 @@ public class Registrarse implements Task {
                 Click.on(BTN_GENDER),
                 Click.on(INPUT_MOBILE),
                 Enter.theValue(datos.get(0).getMobile()).into(INPUT_MOBILE),
+                Click.on(INPUT_DATE),
+                Click.on(INPUT_VDATE),
+                Click.on(INPUT_PAGE),
+                Click.on(INPUT_HOBBIES),
+                Click.on(INPUT_HOBBIES1),
                 Click.on(INPUT_ADDRESS),
                 Enter.theValue(datos.get(0).getCurrentAddress()).into(INPUT_ADDRESS),
                 Click.on(BTN_SUBMIT));

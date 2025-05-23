@@ -13,8 +13,7 @@ Característica: Registro de usuario nuevo en la pagina de DemoQA
     Cuando ingrese los campos obligatorios del formulario de registro y hace click en el boton Submit
       | nombre   | apellidos   | email   | mobile   | current address   |
       | <nombre> | <apellidos> | <email> | <mobile> | <current address> |
-    Entonces el sistema debe mostrar un mensaje de confirmacion agradeciendo por el envio del formulario
-    Y una tabla con los datos diligenciados en el formulario
+    Entonces el sistema debe mostrar un mensaje de confirmacion agradeciendo por el envio del formulario y una tabla con los datos diligenciados en el formulario
     Ejemplos:
-      | nombre | apellidos | email            | mobile     | subjects | current address  |
-      | johan  | garcia    | prueba@gmail.com | 3107847573 | ejemplo  | cra 87 h # 41-14 |
+      | nombre | apellidos | email            | mobile     | current address  |
+      | johan  | garcia    | prueba@gmail.com | 3107847573 | cra 87 h # 41-14 |

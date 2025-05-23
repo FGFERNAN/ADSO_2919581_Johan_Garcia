@@ -154,7 +154,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 21-05-2025 19:41</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 22-05-2025 19:26</span>
     <br style="clear:left"/>
 </div>
 
@@ -197,9 +197,9 @@ Para poder acceder al contenido y funcionalidades disponibles en mi cuenta.
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-times-circle failure-icon fa-2x' title='FAILURE'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">Verificar la autenticacion exitosa en la pagina de Facebook
+                                <span class="failing-color">Verificar la autenticacion exitosa en la pagina de Facebook
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -216,27 +216,67 @@ Para poder acceder al contenido y funcionalidades disponibles en mi cuenta.
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Assertion error: Expected validacion loginExpected: is (true) but: was (false)</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall""
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="far fa-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>java.lang.AssertionError </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>co.com.AutomatizacionFacebookPage.stepsdefinitions.AutenticacionFacebookStepDefinitions.seDebeVerificarQueElUsuarioHayaSidoAutenticadoCorrectamenteYRedirigidoASuPaginaDeInicioDeFacebook(AutenticacionFacebookStepDefinitions.java:30)<br />✽.se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio de Facebook(src/test/resources/features/autenticacionlogin_facebook.feature:16)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <div class="panel-body">
+                    <a href="pagesource4253534508987781172.html.txt" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="16300ebf8e564fbe8790251b78c9431fd439609c7d6add5e7d7ade4cb10b320c.png" title=" Dado que el usuario se encuentra en la pagina de inicio de sesion de Facebook" width="1925"/>
-                <img src="16300ebf8e564fbe8790251b78c9431fd439609c7d6add5e7d7ade4cb10b320c.png" title=" Usuario abrir pagina" width="1925"/>
-                <img src="16300ebf8e564fbe8790251b78c9431fd439609c7d6add5e7d7ade4cb10b320c.png" title=" usuario opens the Inicio facebook" width="1925"/>
-                <img src="16300ebf8e564fbe8790251b78c9431fd439609c7d6add5e7d7ade4cb10b320c.png" title=" Usuario abrir pagina (completed)" width="1925"/>
-                <img src="16300ebf8e564fbe8790251b78c9431fd439609c7d6add5e7d7ade4cb10b320c.png" title=" Dado que el usuario se encuentra en la pagina de inicio de sesion de Facebook (completed)" width="1925"/>
-                <img src="463740c5550fe4a28384cb607390d771c2ba5f3c5dcea1c943bb93cc798ade96.png" title=" Cuando ingrese las credenciales correctas (usuario y contrasena)
+                <img src="292587f202414b133bcbb55e12ef5929d9952e42c503fa24197dd03b09ba4ead.png" title=" Dado que el usuario se encuentra en la pagina de inicio de sesion de Facebook" width="1925"/>
+                <img src="292587f202414b133bcbb55e12ef5929d9952e42c503fa24197dd03b09ba4ead.png" title=" Usuario abrir pagina" width="1925"/>
+                <img src="292587f202414b133bcbb55e12ef5929d9952e42c503fa24197dd03b09ba4ead.png" title=" usuario opens the Inicio facebook" width="1925"/>
+                <img src="292587f202414b133bcbb55e12ef5929d9952e42c503fa24197dd03b09ba4ead.png" title=" Usuario abrir pagina (completed)" width="1925"/>
+                <img src="292587f202414b133bcbb55e12ef5929d9952e42c503fa24197dd03b09ba4ead.png" title=" Dado que el usuario se encuentra en la pagina de inicio de sesion de Facebook (completed)" width="1925"/>
+                <img src="6a3d7835cde84de2471bd20570c960ecf7cbbc3648f8f4b7b1587a39578c632e.png" title=" Cuando ingrese las credenciales correctas (usuario y contrasena)
 | usuarios | clave |
-| john | 1234 |" width="1925"/>
-                <img src="463740c5550fe4a28384cb607390d771c2ba5f3c5dcea1c943bb93cc798ade96.png" title=" Usuario autenticarse" width="1925"/>
-                <img src="463740c5550fe4a28384cb607390d771c2ba5f3c5dcea1c943bb93cc798ade96.png" title=" usuario clicks on  Ingreso del Usuario" width="1925"/>
-                <img src="a00253d492224b54ffe3fb87234f80e53812267771d821325efbbc5fe3c7dc56.png" title=" usuario enters 'john' into  Ingreso del Usuario" width="1925"/>
-                <img src="0ddbc73dd443ebd766bc9204dc6b56e5110d6cd71ac232c3aa7c4db46c3d487f.png" title=" usuario clicks on Ingreso del password" width="1925"/>
-                <img src="f6b193f8646baa005773f46e0a39ebc756b68cb14042bca39ea9ac55c2135e63.png" title=" usuario enters '1234' into Ingreso del password" width="1925"/>
-                <img src="d3cce9ae97ae2d8fedf2028cb5419c29b342c3555f0076204574a43aac4043c5.png" title=" usuario clicks on Click Boton inicio sesion" width="1925"/>
-                <img src="d3cce9ae97ae2d8fedf2028cb5419c29b342c3555f0076204574a43aac4043c5.png" title=" Usuario autenticarse (completed)" width="1925"/>
-                <img src="d3cce9ae97ae2d8fedf2028cb5419c29b342c3555f0076204574a43aac4043c5.png" title=" Cuando ingrese las credenciales correctas (usuario y contrasena)
+| student | Password123 |" width="1925"/>
+                <img src="6a3d7835cde84de2471bd20570c960ecf7cbbc3648f8f4b7b1587a39578c632e.png" title=" Usuario autenticarse" width="1925"/>
+                <img src="6a3d7835cde84de2471bd20570c960ecf7cbbc3648f8f4b7b1587a39578c632e.png" title=" usuario clicks on  Ingreso del Usuario" width="1925"/>
+                <img src="ef18eb12d53cafa4735f5dbddfd2be03b8fa555281629a432c6536ff1fefc248.png" title=" usuario enters 'student' into  Ingreso del Usuario" width="1925"/>
+                <img src="a14bad2a7eac4913ee8d6fbf36968f4ffac723980f4c784bcf265e1f586c311b.png" title=" usuario clicks on Ingreso del password" width="1925"/>
+                <img src="d694cd2bb158a27845543ac0f203e40759816788801ba312299c0918a509b257.png" title=" usuario enters 'Password123' into Ingreso del password" width="1925"/>
+                <img src="c0a870909ef0e9b0b4d3c3fc540b578d656998041c6fac8b9684b37e84b61f3c.png" title=" usuario clicks on Click Boton inicio sesion" width="1925"/>
+                <img src="c0a870909ef0e9b0b4d3c3fc540b578d656998041c6fac8b9684b37e84b61f3c.png" title=" Usuario autenticarse (completed)" width="1925"/>
+                <img src="c0a870909ef0e9b0b4d3c3fc540b578d656998041c6fac8b9684b37e84b61f3c.png" title=" Cuando ingrese las credenciales correctas (usuario y contrasena)
 | usuarios | clave |
-| john | 1234 | (completed)" width="1925"/>
-                <img src="d3cce9ae97ae2d8fedf2028cb5419c29b342c3555f0076204574a43aac4043c5.png" title=" Entonces se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio de Facebook: <span class='success-color'>SUCCESS</span>" width="1925"/>
+| student | Password123 | (completed)" width="1925"/>
+                <img src="c0a870909ef0e9b0b4d3c3fc540b578d656998041c6fac8b9684b37e84b61f3c.png" title=" Entonces se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio de Facebook" width="1925"/>
+                <img src="c0a870909ef0e9b0b4d3c3fc540b578d656998041c6fac8b9684b37e84b61f3c.png" title=" Then validacion login: <span class='failing-color'>FAILURE</span>" width="1925"/>
             </div>
         </div>
 

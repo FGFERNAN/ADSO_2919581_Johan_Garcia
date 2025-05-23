@@ -1,5 +1,7 @@
 package co.com.AutomatizacionDemoQA.models;
 
+import java.util.Date;
+
 public class DatosRegistro {
     private String nombre;
 
@@ -10,6 +12,7 @@ public class DatosRegistro {
     private String mobile;
 
     private String currentAddress;
+
 
 
     public String getNombre() {
@@ -53,14 +56,13 @@ public class DatosRegistro {
     }
 
     public String getCurrentAddress() {
-
         return currentAddress;
     }
 
     public void setCurrentAddress(String currentAddress) {
-
         this.currentAddress = currentAddress;
     }
+
 
 
     public DatosRegistro(String nombre, String apellidos, String email, String mobile, String currentAddress) {

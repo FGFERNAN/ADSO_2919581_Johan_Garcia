@@ -1,6 +1,7 @@
 package co.com.AutomatizacionDemoQA.stepsDefinitions;
 
 import co.com.AutomatizacionDemoQA.models.DatosRegistro;
+import co.com.AutomatizacionDemoQA.questions.ValidacionRegistro;
 import co.com.AutomatizacionDemoQA.tasks.AbrirPagina;
 import co.com.AutomatizacionDemoQA.tasks.Registrarse;
 import cucumber.api.DataTable;
@@ -10,6 +11,7 @@ import cucumber.api.java.es.Entonces;
 
 import java.util.List;
 
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class RegistroDemoQAStepsDefinitions {
@@ -23,11 +25,9 @@ public class RegistroDemoQAStepsDefinitions {
         theActorInTheSpotlight().attemptsTo(Registrarse.aute(datos));
     }
 
-    @Entonces("^el sistema debe mostrar un mensaje de confirmacion agradeciendo por el envio del formulario$")
+    @Entonces("^el sistema debe mostrar un mensaje de confirmacion agradeciendo por el envio del formulario y una tabla con los datos diligenciados en el formulario$")
     public void elSistemaDebeMostrarUnMensajeDeConfirmacionAgradeciendoPorElEnvioDelFormulario() {
+        theActorInTheSpotlight().should(seeThat(ValidacionRegistro.ValidacionRegistro()));
     }
 
-    @Entonces("^una tabla con los datos diligenciados en el formulario$")
-    public void unaTablaConLosDatosDiligenciadosEnElFormulario() {
-    }
 }

@@ -1,6 +1,7 @@
 package co.com.AutomatizacionFacebookPage.stepsdefinitions;
 
 import co.com.AutomatizacionFacebookPage.models.CredencialesInicioSesion;
+import co.com.AutomatizacionFacebookPage.questions.ValidacionLogin;
 import co.com.AutomatizacionFacebookPage.tasks.AbrirPagina;
 import co.com.AutomatizacionFacebookPage.tasks.Autenticarse;
 import cucumber.api.DataTable;
@@ -10,6 +11,7 @@ import cucumber.api.java.es.Entonces;
 
 import java.util.List;
 
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class AutenticacionFacebookStepDefinitions {
@@ -25,5 +27,6 @@ public class AutenticacionFacebookStepDefinitions {
 
     @Entonces("^se debe verificar que el usuario haya sido autenticado correctamente y redirigido a su pagina de inicio de Facebook$")
     public void seDebeVerificarQueElUsuarioHayaSidoAutenticadoCorrectamenteYRedirigidoASuPaginaDeInicioDeFacebook() {
+        theActorInTheSpotlight().should(seeThat(ValidacionLogin.validacionLogin()));
     }
 }
