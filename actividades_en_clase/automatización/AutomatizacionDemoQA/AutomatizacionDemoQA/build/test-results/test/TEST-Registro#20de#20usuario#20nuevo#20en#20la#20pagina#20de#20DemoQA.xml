@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Registro de usuario nuevo en la pagina de DemoQA" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-05-23T01:01:04" hostname="DESKTOP-9S50AII" time="39.808">
+<testsuite name="Registro de usuario nuevo en la pagina de DemoQA" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-05-23T22:50:08" hostname="DESKTOP-9S50AII" time="34.791">
   <properties/>
-  <testcase name="Registro Exitosamente" classname="Registro de usuario nuevo en la pagina de DemoQA" time="39.808"/>
+  <testcase name="Registro Exitosamente" classname="Registro de usuario nuevo en la pagina de DemoQA" time="34.791"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[may. 22, 2025 8:01:06 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
+  <system-err><![CDATA[may. 23, 2025 5:50:10 P. M. org.openqa.selenium.remote.DesiredCapabilities chrome
 INFO: Using `new ChromeOptions()` is preferred to `DesiredCapabilities.chrome()`
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Instantiating driver
 [Test worker] INFO net.serenitybdd.core.webdriver.driverproviders.ProvideNewDriver - Driver capabilities: Capabilities {acceptInsecureCerts: false, browserName: chrome, goog:chromeOptions: {args: [], extensions: [], prefs: {behavior: allow}}, loggingPrefs: org.openqa.selenium.logging..., name: proyecto, platform: ANY, unhandledPromptBehavior: ignore, version: }
-Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 38452
+Starting ChromeDriver 136.0.7103.94 (fa0be0b33debeb378a8e6ad9c599be34e2dc3b37-refs/branch-heads/7103@{#1842}) on port 36555
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully on port 38452.
-may. 22, 2025 8:01:11 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
+ChromeDriver was started successfully on port 36555.
+may. 23, 2025 5:50:16 P. M. org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 [Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
         __    _____ _____ ____ _____   ____   _    ____  ____  _____ ____  

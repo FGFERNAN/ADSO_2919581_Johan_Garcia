@@ -1,6 +1,7 @@
 package co.com.AutomatizacionDemoQA.stepsDefinitions;
 
 import co.com.AutomatizacionDemoQA.models.DatosRegistro;
+import co.com.AutomatizacionDemoQA.questions.ValidacionGenero;
 import co.com.AutomatizacionDemoQA.questions.ValidacionRegistro;
 import co.com.AutomatizacionDemoQA.tasks.AbrirPagina;
 import co.com.AutomatizacionDemoQA.tasks.Registrarse;
@@ -23,6 +24,7 @@ public class RegistroDemoQAStepsDefinitions {
     @Cuando("^ingrese los campos obligatorios del formulario de registro y hace click en el boton Submit$")
     public void ingreseLosCamposObligatoriosDelFormularioDeRegistroYHaceClickEnElBotonSubmit(List<DatosRegistro> datos) {
         theActorInTheSpotlight().attemptsTo(Registrarse.aute(datos));
+        theActorInTheSpotlight().should(seeThat(ValidacionGenero.validacionGenero()));
     }
 
     @Entonces("^el sistema debe mostrar un mensaje de confirmacion agradeciendo por el envio del formulario y una tabla con los datos diligenciados en el formulario$")
